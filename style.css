@@ -1,0 +1,270 @@
+/* Reset for padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main container styling */
+body, html {
+    width: 100%;
+    height: 100%;
+    background: black !important; /* Black background */
+    font-family: Arial, sans-serif;
+}
+
+/* Preloader styles */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.box {
+    width: 20px;
+    height: 20px;
+    background-color: #00ffcc; /* Color of the boxes */
+    margin: 0 5px; /* Spacing between boxes */
+    animation: stack 1.5s ease-in-out infinite;
+}
+
+/* Animation for box stacking */
+@keyframes stack {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-30px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Dynamic background container styling */
+.dynamic-bg {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px; /* Space for the fixed navbar */
+}
+
+/* Style for header text */
+.head h1 {
+    margin-top: 20%;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+    
+}
+
+/* Style for animated circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    animation: float 6s infinite ease-in-out, rotate 12s infinite linear, pulse 3s infinite ease-in-out;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Circle floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Circle rotation animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Circle pulsating effect */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* Hover effect on circles */
+.dynamic-bg:hover .circle {
+    transform: scale(1.2) rotate(45deg);
+}
+
+/* Adding multiple colorful circles for background effect */
+.circle-1 { 
+    width: 150px; 
+    height: 150px; 
+    top: 30%; 
+    left: 20%; 
+    animation-delay: 0s; 
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(255, 255, 0, 0.5));
+}
+.circle-2 { 
+    width: 100px; 
+    height: 100px; 
+    top: 70%; 
+    left: 50%; 
+    animation-delay: 1s; 
+    background: linear-gradient(45deg, rgba(0, 255, 0, 0.5), rgba(0, 255, 255, 0.5));
+}
+.circle-3 { 
+    width: 200px; 
+    height: 200px; 
+    top: 40%; 
+    left: 80%; 
+    animation-delay: 2s; 
+    background: linear-gradient(45deg, rgba(0, 0, 255, 0.5), rgba(255, 0, 255, 0.5));
+}
+.circle-4 { 
+    width: 80px; 
+    height: 80px; 
+    top: 20%; 
+    left: 70%; 
+    animation-delay: 3s; 
+    background: linear-gradient(45deg, rgba(255, 165, 0, 0.5), rgba(255, 105, 180, 0.5));
+}
+.circle-5 { 
+    width: 120px; 
+    height: 120px; 
+    top: 50%; 
+    left: 30%; 
+    animation-delay: 4s; 
+    background: linear-gradient(45deg, rgba(75, 0, 130, 0.5), rgba(238, 130, 238, 0.5));
+}
+
+/* Content styling */
+.content {
+    padding: 50px;
+    display: none; /* Initially hidden */
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Show content when it is visible */
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Custom Navbar Styling */
+.custom-navbar {
+    background-color: #1a1a1a; /* Dark background */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures navbar stays above other elements */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar Brand Styling */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #00ffcc; /* Brand color on hover */
+}
+
+/* Navbar Links Styling */
+.nav-link {
+    color: #d1d1d1;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links with background glow */
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00ffcc;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1); /* Line expands on hover */
+}
+
+.nav-link:hover {
+    color: #00ffcc; /* Neon blue hover effect */
+}
+
+/* Active Link Styling */
+.nav-link.active {
+    color: #00ffcc; /* Active link color */
+    font-weight: bold;
+}
+
+/* Disabled Link Styling */
+.nav-link.disabled {
+    color: #7a7a7a;
+    pointer-events: none;
+}
+
+/* Navbar Toggler Icon Customization */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.5 12.5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5 0 0 1 0 1h-13zm0-5a.5.5 0 0 1 0-1h13a.5.5.5
+}
+
+/* Responsive Navbar for small screens */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+        background-color: #1a1a1a;
+        padding: 1rem;
+        width: 100%;
+    }
+    .nav-link {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Smooth scroll for in-page navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar shadow on scroll */
+.custom-navbar.scrolled {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    background-color: #1a1a1a; /* Slightly darker background on scroll */
+}
